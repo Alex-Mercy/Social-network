@@ -8,40 +8,39 @@ let initialState = {
         { id: 3, name: 'Vera' },
         { id: 4, name: 'Vova' },
         { id: 5, name: 'Dima' }
-      ],
-      messages: [
+    ],
+    messages: [
         { id: 1, message: "Hi!" },
         { id: 2, message: "How are you?" },
         { id: 3, message: "Yo!" }
-      ],
-      newMessageBody: ''
+    ],
+    newMessageBody: ''
 };
 
 
 const dialogsReducer = (state = initialState, action) => {
+
     switch (action.type) {
         case ADD_MESSAGE: {
-            let newMessage = {
-                id: 4, message: state.newMessageBody
-            };
-            let stateCopy = {...state};
-            stateCopy.messages = [...state.messages];
-            stateCopy.messages.push(newMessage);
-            stateCopy.newMessageBody = '';
-            return stateCopy;
-        }
+            return {
+                ...state,
+                newMessageBody: '',
+                messages: [...state.messages, { id: 4, message: state.newMessageBody }],
+            }; 
+        };
         case UPDATE_NEW_MESSAGE_BODY: {
-            let stateCopy = {...state};
-            stateCopy.newMessageBody = action.body;
-            return stateCopy;
-        }
+            return {
+                ...state,
+                newMessageBody: action.body
+            };
+        };
         default:
             return state;
     }
 
 }
 
-export const  addMessageActionCreator = () => ({
+export const addMessageActionCreator = () => ({
     type: ADD_MESSAGE
 })
 
