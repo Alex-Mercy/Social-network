@@ -5,7 +5,6 @@ import App from './App';
 import {Provider} from "react-redux";
 
 
-let renderEntireTree = (state) => {
   ReactDOM.render(
     <Provider store={store}>
     <App />
@@ -13,10 +12,7 @@ let renderEntireTree = (state) => {
     , document.getElementById('root')
     
   );
-}
 
 
-renderEntireTree(store.getState());
 
-store.subscribe(renderEntireTree);
 
