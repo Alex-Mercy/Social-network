@@ -1,6 +1,6 @@
 import React from "react";
 import DialogItem from "./DialogItem/DialogItem";
-import CssDialogs from "./Dialogs.module.css";
+import styles from "./Dialogs.module.css";
 import Messages from "./Messages/Messages";
 
 
@@ -22,11 +22,11 @@ const Dialogs = (props) => {
     let newMessageBody = dialogsPage.newMessageBody;
 
     return (
-        <div className={CssDialogs.dialogs}>
-            <div className={CssDialogs.dialogsItems}>
+        <div className={styles.dialogs}>
+            <div className={styles.dialogsItems}>
                 {dialogsElements}
             </div>
-            <div className={CssDialogs.messages}>
+            <div className={styles.messages}>
                 {messagesElements}
                 <textarea onChange={onMessageChange} value={newMessageBody} placeholder='Enter your message'></textarea>
                 <div>

@@ -1,7 +1,7 @@
 import React from "react";
-import CssProfile from "./MyPosts.module.css";
+import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import {updateNewPostTextActionCreator, addPostActionCreator} from '../../../redux/profileReducer'
+
 
 
 
@@ -20,13 +20,13 @@ const Myposts = (props) => {
     }
 
     return (
-        <div className={CssProfile.postsBlock}>
+        <div className={styles.postsBlock}>
             <h3>My posts</h3>
             <div>
                 <div>
                     <textarea onChange={onPostChange}  value={props.newPostText}/>
                 </div>
-                <button onClick={ onAddPost } className={CssProfile.addPostButton}>Add post</button>
+                <button onClick={ onAddPost } className={styles.addPostButton}>Add post</button>
             </div>
             <div>
         {postElements}
