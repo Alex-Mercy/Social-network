@@ -46,14 +46,14 @@ const usersReducer = (state = initialState, action) => {
         case SET_CURRNET_PAGE: {
             return {
                 ...state,
-                currentPage:  action.currentPage
+                currentPage: action.currentPage
             }
         }
 
         case SET_TOTAL_USERS_COUNT: {
             return {
                 ...state,
-                totalUsersCount:  action.count
+                totalUsersCount: action.count
             }
         }
 
@@ -82,7 +82,7 @@ export const setCurrentPageAC = (currentPage) => ({
     currentPage
 })
 
-export const setUsersTotalCountAC = (totalUsersCount) => ({
+export const setTotalUsersCountAC = (totalUsersCount) => ({
     type: SET_TOTAL_USERS_COUNT,
     count: totalUsersCount
 })
