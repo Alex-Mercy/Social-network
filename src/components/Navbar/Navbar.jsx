@@ -23,6 +23,9 @@ const Navbar = () => {
                 <div className={CssNavbar.item}>
                     <NavLink to="settings" className = { navData => navData.isActive ? CssNavbar.active : CssNavbar.item } >Settings</NavLink>
                 </div>
+                <div className={CssNavbar.item}>
+                    <NavLink to="login" className = { navData => navData.isActive ? CssNavbar.active : CssNavbar.item } >Login</NavLink>
+                </div>
             </nav>
     )
 }
