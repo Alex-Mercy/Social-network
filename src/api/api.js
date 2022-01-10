@@ -16,7 +16,6 @@ export const usersAPI = {
     }
 }
 
-
 export const followAPI = {
 unfollowUsers(id) {
     return instance.delete(`follow/${id}`, {
@@ -28,16 +27,21 @@ followUsers(id) {
     return instance.post(`follow/${id}`, {
     })
     .then(response => response.data);
-}
-}
+}}
 
 export const profileAPI = {
 getUserProfile(userId) {
     return instance.get(`profile/${userId}`, {
     })
     .then(response => response.data);
-}
-}
+}}
+
+export const authAPI = {
+    me() {
+        return instance.get(`auth/me`, {
+        })
+        .then(response => response.data);
+    }}
 
 
 
