@@ -17,8 +17,6 @@ class ProfileContainer extends React.Component {
 
 
     render() {
-        if (!this.props.isAuth) return <Navigate to="/login"/>
-
         return (
             <div>
                 <Profile {...this.props} />
@@ -41,6 +39,5 @@ profile: state.profilePage.profile,
 
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile}),
-    WithAuthRedirect
+    connect(mapStateToProps, {getUserProfile})
 )(ProfileMatch)
