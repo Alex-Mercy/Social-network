@@ -22,8 +22,6 @@ const Dialogs = (props) => {
     let messagesElements = dialogsPage.messages.map(m => <Messages message={m.message} key={m.id} />);
     let newMessageBody = dialogsPage.newMessageBody;
 
-    if (!props.isAuth) return <Navigate to="/login"/>
-
     return (
         <div className={styles.dialogs}>
             <div className={styles.dialogsItems}>
