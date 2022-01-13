@@ -11,8 +11,8 @@ const Users = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
-
     return (
+       
         <div className={styles.usersPage}>
             <div>
                 {pages.map(p => {
