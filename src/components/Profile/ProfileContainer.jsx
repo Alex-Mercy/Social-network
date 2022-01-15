@@ -3,6 +3,7 @@ import Profile from "./Profile";
 import { connect } from "react-redux";
 import { getUserProfile, getUserStatus, updateUserStatus } from "../../redux/profileReducer";
 import {  useMatch } from "react-router-dom";
+import { WithAuthRedirect } from "../hoc/withAuthRedirect";
 
 import { compose } from "redux";
 
@@ -41,5 +42,6 @@ status: state.profilePage.status
 
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus})
+    connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus}),
+    WithAuthRedirect
 )(ProfileMatch)
