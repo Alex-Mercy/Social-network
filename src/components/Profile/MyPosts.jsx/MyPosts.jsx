@@ -5,11 +5,10 @@ import { maxLengthCreator, required } from "../../validators/validator";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-
 const maxLength10 = maxLengthCreator(10);
 
-
-const Myposts = (props) => {
+const Myposts = React.memo(props => {
+    console.log("render");
 
     let postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} key={p.id} />);
 
@@ -32,7 +31,7 @@ const Myposts = (props) => {
             </div>
         </div>
     )
-}
+});
 
 
 const AddNewPost = (props) => {
