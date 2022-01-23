@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import './App.css';
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
@@ -29,7 +29,7 @@ class  App extends Component  {
 
         
     return (
-        <BrowserRouter>
+        
             <div className='app-wrapper'>
                 <HeaderContainer />
                 <Navbar />
@@ -45,7 +45,7 @@ class  App extends Component  {
                     </Routes>
                 </div>
             </div>
-        </BrowserRouter>
+        
     )
 }
 }
