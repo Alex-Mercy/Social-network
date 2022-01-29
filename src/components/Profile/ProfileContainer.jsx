@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
-import { getUserProfile, getUserStatus, updateUserStatus } from "../../redux/profileReducer";
+import { getUserProfile, getUserStatus, updateUserStatus, savePhoto } from "../../redux/profileReducer";
 import {  useMatch } from "react-router-dom";
 import { WithAuthRedirect } from "../hoc/withAuthRedirect";
 
@@ -11,17 +11,27 @@ import { compose } from "redux";
 
 class ProfileContainer extends React.Component {
 
-    componentDidMount() {
+    refreshProfile() {
         let userId = this.props.match ? this.props.match.params.userId : this.props.authorizedUserId;
         this.props.getUserProfile(userId);
         this.props.getUserStatus(userId);
+    }
+
+    componentDidMount() {
+        this.refreshProfile();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.match != prevProps.match) {
+            this.refreshProfile(); 
+        }
     }
 
 
     render() {
         return (
             <div>
-                <Profile {...this.props} />
+                <Profile {...this.props} isOwner = {!this.props.match}/>
             </div>
         )
     }
@@ -44,6 +54,6 @@ isAuth: state.isAuth
 
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus}),
+    connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, savePhoto}),
     WithAuthRedirect
 )(ProfileMatch)
