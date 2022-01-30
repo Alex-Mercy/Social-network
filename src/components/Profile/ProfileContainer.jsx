@@ -1,7 +1,8 @@
 import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
-import { getUserProfile, getUserStatus, updateUserStatus, savePhoto } from "../../redux/profileReducer";
+import { getUserProfile, getUserStatus, updateUserStatus, 
+    savePhoto, saveProfile } from "../../redux/profileReducer";
 import {  useMatch } from "react-router-dom";
 import { WithAuthRedirect } from "../hoc/withAuthRedirect";
 
@@ -54,6 +55,6 @@ isAuth: state.isAuth
 
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, savePhoto}),
+    connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, savePhoto, saveProfile}),
     WithAuthRedirect
 )(ProfileMatch)
