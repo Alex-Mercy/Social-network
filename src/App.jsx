@@ -40,6 +40,7 @@ class  App extends Component  {
                     <Routes>
                         <Route path="/dialogs/*" element={<DialogsContainer />} />
                         <Route path="/profile/*" element={<ProfileContainer />}  />
+                        <Route path="/" element={<ProfileContainer />}  />
                         </Routes>
                         </Suspense>
                         <Routes>
@@ -48,6 +49,7 @@ class  App extends Component  {
                         <Route path="/music" element={<Music />} />
                         <Route path="/settings" element={<Settings />} />
                         <Route path="/login" element={<Login />} />
+                        <Route path="/*" element={<div>404 NOT FOUND</div>} />
                         </Routes>
                     
                     
