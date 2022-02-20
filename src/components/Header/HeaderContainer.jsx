@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./Header";
+import HeaderMUI from "./HeaderMUI";
 import { connect } from "react-redux";
 import {logout} from "../../redux/auth-Reducer";
 
@@ -7,7 +7,7 @@ import {logout} from "../../redux/auth-Reducer";
 class HeaderContainer extends React.Component {
 
     render () {
-        return <Header {...this.props} />
+        return <HeaderMUI {...this.props} />
     }
 }
 

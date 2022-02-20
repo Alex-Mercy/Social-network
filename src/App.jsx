@@ -2,7 +2,7 @@ import React, { Component, Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import './App.css';
 import HeaderContainer from "./components/Header/HeaderContainer";
-import Navbar from "./components/Navbar/Navbar";
+import NavbarMUI from "./components/Navbar/NavbarMUI";
 // import ProfileContainer from "./components/Profile/ProfileContainer";
 // import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import News from "./components/News/News";
@@ -34,7 +34,7 @@ class  App extends Component  {
         
             <div className='app-wrapper'>
                 <HeaderContainer />
-                <Navbar />
+                <NavbarMUI />
                 <div className="app-wrapper__content">
                 <Suspense fallback={<Preloader />}>
                     <Routes>

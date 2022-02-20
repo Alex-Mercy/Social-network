@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import Preloader from "../../common/Preloader/Preloader";
 import styles from "./ProfileInfo.module.css";
-import userPhoto from '../../../assets/images/user.jpg'
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import { Field, reduxForm } from "redux-form";
 import { Input, Textarea } from "../../common/FormsControls/FormsControls";
 
