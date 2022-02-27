@@ -7,9 +7,6 @@ import { Container, Grid } from "@material-ui/core";
 const Users = (props) => {
     return (
         <Container>
-            <Paginator currentPage={props.currentPage} onPageChanged={props.onPageChanged}
-                totalItmesCount={props.totalUsersCount} portionSize={props.portionUsersSize}
-                pageSize={props.pageSize} />
             <Grid container spacing={4}>
                 {props.users.map(u => 
                     <User user={u} followingInProgress={props.followingInProgress}
@@ -17,17 +14,9 @@ const Users = (props) => {
                 )}
 
             </Grid>
-
-
-
-
-            {/* <Container>
-                
-                
-
-                
-                </Grid>
-            </Container> */}
+            <Paginator currentPage={props.currentPage} onPageChanged={props.onPageChanged}
+                totalItmesCount={props.totalUsersCount} portionSize={props.portionUsersSize}
+                pageSize={props.pageSize} />
         </Container>
 
 

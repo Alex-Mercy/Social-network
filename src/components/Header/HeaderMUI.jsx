@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -67,7 +68,7 @@ const HeaderMUI = (props) => {
 
                     {props.isAuth ?
                         <div>{props.login} <div> <Button onClick={props.logout} >Logout</Button> </div></div>
-                        : <Link to="/login"><Button>Login</Button></Link>}
+                        : <Button component={Link} to="/login">Login</Button>}
 
                 </Toolbar>
             </AppBar>
