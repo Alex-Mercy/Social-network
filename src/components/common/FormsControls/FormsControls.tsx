@@ -1,7 +1,17 @@
-import React from "react";
+import React from 'react';
 import styles from "./FormsControls.module.css";
 
-const FormControl = ({ input, meta, Formtype, ...props }) => {
+type FormControlPropsType = {
+    input: string
+    meta: {
+        touched: boolean
+        error: string
+    }
+    Formtype: any
+}
+
+
+const FormControl = ({ input, meta, Formtype, ...props }:FormControlPropsType)  => {
     const hasError = meta.touched && meta.error;
     return (
         <div>
@@ -15,11 +25,11 @@ const FormControl = ({ input, meta, Formtype, ...props }) => {
     )
 }
 
-export const Textarea = (props) => {
+export const Textarea = (props: FormControlPropsType) => {
     return <FormControl {...props} Formtype="textarea"></FormControl>
 }
 
-export const Input = (props) => {
+export const Input = (props: FormControlPropsType) => {
     return <FormControl {...props} Formtype="input"></FormControl>
 }
 
