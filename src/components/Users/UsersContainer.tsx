@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { follow, unfollow, setCurrentPage, requestUsers } from "../../redux/usersReducer";
+import { follow, unfollow, requestUsers } from "../../redux/usersReducer";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import { compose } from "redux";
 import { getCurrentPage, getportionUsersSize, getFollowingInProgress, 
     getIsFetching, getPageSize, getTotalUsersCount, getUsers } from "../../redux/users-selectors";
 import { userType } from "../../types/types";
-import { stateType } from "../../redux/redux-store";
+import { StateType } from "../../redux/redux-store";
 
 type mapStatepropsType = {
     currentPage: number
@@ -59,7 +59,7 @@ class usersContainer extends React.Component<propsType> {
 }
 
 
-let mapStateToProps = (state: stateType): mapStatepropsType => {
+let mapStateToProps = (state: StateType): mapStatepropsType => {
     return {
         users: getUsers(state),
         pageSize: getPageSize(state),
@@ -73,5 +73,5 @@ let mapStateToProps = (state: stateType): mapStatepropsType => {
 
 export default compose<React.Component>(
     connect(
-        mapStateToProps, {follow, unfollow, setCurrentPage, requestUsers})
+        mapStateToProps, {follow, unfollow, requestUsers})
 )(usersContainer)
