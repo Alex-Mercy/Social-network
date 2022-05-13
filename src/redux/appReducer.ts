@@ -1,41 +1,37 @@
 import { getAuthUserData } from "./auth-Reducer";
+import { BaseThunkType, InferActionsTypes } from "./store";
 
-const INITIALIZED_SUCCES = 'app/INITIALIZED_SUCCES';
+type initialStateType = typeof initialState;
 
-export type initialStateType = {
-    initialized: boolean
-};
-
-
-let initialState: initialStateType = {
+let initialState = {
     initialized: false
 };
 
 
-const appReducer = (state = initialState, action: any): initialStateType => {
-
+const appReducer = (state = initialState, action: ActionSType): initialStateType => {
     switch (action.type) {
-        case INITIALIZED_SUCCES: {return {...state, initialized: true};
+        case 'INITIALIZED_SUCCES': {return {...state, initialized: true};
         };
         default: return state;
     }
-
 }
 
-type initializedSuccesActionType = {
-    type: typeof INITIALIZED_SUCCES
+type ActionSType = InferActionsTypes<typeof actions>
+
+export const actions = {
+    initializedSucces: () => ({type: 'INITIALIZED_SUCCES'} as const )
 }
 
-export const initializedSucces = (): initializedSuccesActionType => ({type: INITIALIZED_SUCCES})
+type ThunkType = BaseThunkType<ActionSType>
 
-
-export const initializeApp = () => (dispatch: any) => {
-    let promise = dispatch(getAuthUserData());
-    Promise.all([promise])
-        .then(() => {
-        dispatch(initializedSucces());
-    })
-    
+export const initializeApp = (): ThunkType => {
+    return async (dispatch) => {
+        let promise = dispatch(getAuthUserData());
+        Promise.all([promise])
+            .then(() => {
+            dispatch(actions.initializedSucces());
+        }) 
+    }
 }
 
 

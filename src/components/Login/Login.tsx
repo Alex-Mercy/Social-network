@@ -6,7 +6,7 @@ import { required } from "../validators/validator";
 import { login } from "../../redux/auth-Reducer";
 import { Navigate } from "react-router-dom";
 import styles from "../common/FormsControls/FormsControls.module.css";
-import { StateType } from "../../redux/redux-store";
+import { StateType } from "../../redux/store";
 
 type LoginFormOwnProps = {
     captchaUrl: string | null

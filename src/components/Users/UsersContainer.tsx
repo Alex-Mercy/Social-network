@@ -6,8 +6,8 @@ import Preloader from "../common/Preloader/Preloader";
 import { compose } from "redux";
 import { getCurrentPage, getportionUsersSize, getFollowingInProgress, 
     getIsFetching, getPageSize, getTotalUsersCount, getUsers } from "../../redux/users-selectors";
-import { userType } from "../../types/types";
-import { StateType } from "../../redux/redux-store";
+import { UserType } from "../../types/types";
+import { StateType } from "../../redux/store";
 
 type mapStatepropsType = {
     currentPage: number
@@ -15,7 +15,7 @@ type mapStatepropsType = {
     isFetching: boolean
     totalUsersCount: number
     portionUsersSize: number
-    users: Array<userType>
+    users: Array<UserType>
     followingInProgress: Array<number>
 }
 

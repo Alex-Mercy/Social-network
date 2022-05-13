@@ -3,7 +3,7 @@ export type postType = {
     message: string
     likesCount: number
 }
-export type contactsType = {
+export type ContactsType = {
     github: string
     vk: string
     facebook: string
@@ -13,25 +13,28 @@ export type contactsType = {
     youtube: string
     mainLink: string
 }
-export type photosType = {
-    small: string | null
-    large: string | null
+export type PhotosType = {
+    photos: {
+        small: string | null
+        large: string | null
+    }
+    
 }
-export type profileType = {
+export type ProfileType = {
     userId: number
     lookingForAJob: boolean
     lookingForAJobDescription: string
     fullName: string
-    contacts: contactsType
-    photos: photosType
+    contacts: ContactsType
+    photos: PhotosType
 }
 
 
-export type userType = {
+export type UserType = {
     id: number,
     name: string
     status: string
-    photos: photosType
+    photos: PhotosType
     followed: boolean
 
 }
