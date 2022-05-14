@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Users.module.css";
 import Paginator from "../common/Paginator/Paginator";
 import User from "./User";
-import { userType } from "../../types/types";
+import { UserType } from "../../types/types";
 
 type propsType = {
     totalUsersCount: number
@@ -13,7 +13,7 @@ type propsType = {
     followingInProgress: Array<number>
     follow: (userId: number) => void
     unfollow: (userId: number) => void
-    users: Array<userType>
+    users: Array<UserType>
 }
 
 const Users: React.FC<propsType> = ({currentPage, onPageChanged, totalUsersCount, portionUsersSize, 

@@ -26,9 +26,9 @@ type mapDispatchpropsType = {
     requestUsers: (currentPage: number, pageSize: number)=> void  
 }
 
-type propsType = mapStatepropsType & mapDispatchpropsType
+type PropsType = mapStatepropsType & mapDispatchpropsType
 
-class usersContainer extends React.Component<propsType> {
+class usersContainer extends React.Component<PropsType> {
 
     componentDidMount() {
         this.props.requestUsers(this.props.currentPage, this.props.pageSize);
@@ -71,7 +71,7 @@ let mapStateToProps = (state: StateType): mapStatepropsType => {
     }
 }
 
-export default compose<React.Component>(
+export default compose<React.ComponentType>(
     connect(
         mapStateToProps, {follow, unfollow, requestUsers})
 )(usersContainer)

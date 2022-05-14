@@ -2,11 +2,11 @@ import React from "react";
 import styles from "./Users.module.css";
 import userPhoto from '../../assets/images/user.jpg'
 import { NavLink } from "react-router-dom";
-import { userType } from "../../types/types";
+import { UserType } from "../../types/types";
 
 
 type propsType = {
-    user: userType
+    user: UserType
     followingInProgress: Array<number>
     unfollow: (userId: number) => void
     follow: (userId: number) => void
@@ -17,8 +17,8 @@ const User: React.FC<propsType> = ({user, followingInProgress, unfollow, follow}
         <div>
             <div>
                 <NavLink to={'/profile/' + user.id}>
-                    <img src={user.photos.small != null ? user.photos.small 
-                        : userPhoto} className={styles.photo} />
+                    <img src={user.photos.small != null ? user.photos.small : userPhoto} className={styles.photo} />
+                    
                 </NavLink>
             </div>
             <div>

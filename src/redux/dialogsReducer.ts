@@ -10,9 +10,9 @@ type messagesType = {
     message: string
 }
 
-type initialStateType = typeof initialState;
+export type InitialStateType = typeof InitialState;
 
-let initialState = {
+let InitialState = {
     dialogs: [
         { id: 1, name: 'Max' },
         { id: 2, name: 'Alex' },
@@ -30,7 +30,7 @@ let initialState = {
 
 
 
-const dialogsReducer = (state = initialState, action: ActionSType): initialStateType => {
+const dialogsReducer = (state = InitialState, action: ActionSType): InitialStateType => {
 
     switch (action.type) {
         case 'SEND_MESSAGE': {

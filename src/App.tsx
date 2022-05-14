@@ -13,12 +13,17 @@ import Login from "./components/Login/Login";
 import { connect } from "react-redux";
 import {initializeApp} from "./redux/appReducer";
 import Preloader from "./components/common/Preloader/Preloader";
+import { StateType } from "./redux/store";
 
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 
+type PropsType = {
+    initialized: boolean
+    initializeApp: () => void
+}
 
-class  App extends Component  {
+class  App extends Component<PropsType>  {
     componentDidMount() {
         this.props.initializeApp()
     }
@@ -28,10 +33,8 @@ class  App extends Component  {
             return <Preloader />
         }
         
-
         
     return (
-        
             <div className='app-wrapper'>
                 <HeaderContainer />
                 <Navbar />
@@ -60,7 +63,7 @@ class  App extends Component  {
 }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: StateType) => ({
     initialized: state.app.initialized
 })
 

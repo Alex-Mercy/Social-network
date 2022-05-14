@@ -4,13 +4,30 @@ import { connect } from "react-redux";
 import { getUserProfile, getUserStatus, updateUserStatus, 
     savePhoto, saveProfile } from "../../redux/profileReducer";
 import {  useMatch } from "react-router-dom";
-import { WithAuthRedirect } from "../hoc/withAuthRedirect";
 import { compose } from "redux";
+import { ProfileType } from "../../types/types";
+import { StateType } from "../../redux/store";
 
 
+type mapStatepropsType = {
+    profile: ProfileType
+    status: string
+    authorizedUserId: number
+    isAuth: boolean
+}
 
-class ProfileContainer extends React.Component {
+type mapDispatchpropsType = {
+    getUserProfile: (userId: number) => void
+    getUserStatus: (userId: number) => void
+    updateUserStatus: (status: string) => void
+    savePhoto: (file: File)=> void
+    saveProfile: (profile: ProfileType)=> void
+    match: any
+}
 
+type PropsType = mapStatepropsType & mapDispatchpropsType
+
+class ProfileContainer extends React.Component<PropsType> {
     refreshProfile() {
         let userId = this.props.match ? this.props.match.params.userId : this.props.authorizedUserId;
         this.props.getUserProfile(userId);

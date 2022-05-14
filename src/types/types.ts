@@ -14,10 +14,8 @@ export type ContactsType = {
     mainLink: string
 }
 export type PhotosType = {
-    photos: {
         small: string | null
         large: string | null
-    }
     
 }
 export type ProfileType = {
