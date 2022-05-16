@@ -1,7 +1,7 @@
 import React from "react";
 import CssMusic from"./Music.module.css";
 
-const Music = () => {
+const Music: React.FC = () => {
     return (
         <div>
             Music

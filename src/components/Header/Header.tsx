@@ -2,7 +2,13 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from"./Header.module.css";
 
-const Header = (props) => {
+export type PropsType = {
+    isAuth: boolean
+    login: string | null
+    logout: () => void
+}
+
+const Header: React.FC<PropsType> = (props) => {
     return (
 <header className={styles.header}>
             <img src='https://i.pinimg.com/originals/e8/7a/fb/e87afb485ae35f89aceef01bc65ff1c0.png' />

@@ -3,12 +3,16 @@ import Preloader from "../../common/Preloader/Preloader";
 import styles from "./ProfileInfo.module.css";
 import userPhoto from '../../../assets/images/user.jpg'
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
-import { Field, reduxForm } from "redux-form";
+import { Field, InjectedFormProps, reduxForm } from "redux-form";
 import { Input, Textarea } from "../../common/FormsControls/FormsControls";
+import { ProfileType } from "../../../types/types";
 
 
+type PropsType = {
+    profile: ProfileType
+}
 
-const ProfileDataForm = ({handleSubmit, profile, error}) => {
+const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> & PropsType>  = ({handleSubmit, profile, error}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -43,6 +47,6 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
 
 }
 
-const ProfileDataFormReduxForm = reduxForm({ form: 'ProfileDataForm' })(ProfileDataForm);
+const ProfileDataFormReduxForm = reduxForm<ProfileType, PropsType>({ form: 'ProfileDataForm' })(ProfileDataForm);
 
 export default ProfileDataFormReduxForm;

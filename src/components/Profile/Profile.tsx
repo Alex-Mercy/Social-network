@@ -1,15 +1,16 @@
 import React from "react";
 import { ProfileType } from "../../types/types";
-import MypostsContainer from "./MyPosts.jsx/MyPostsContainer";
+import MypostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 type PropsType = {
     profile: ProfileType
     status: string
     updateUserStatus: () => void
-    saveProfile: () => void
-    savePhoto: () => void
-    isOwner: boolean
+    saveProfile: (profile: ProfileType) => Promise<any>
+    savePhoto: (file: File) => void
+    isOwner: any
+    
 
 }
 

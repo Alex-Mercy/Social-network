@@ -1,7 +1,7 @@
 import React from "react";
 import CssNews from"./News.module.css";
 
-const News = () => {
+const News: React.FC = () => {
     return (
         <div>
             News

@@ -7,6 +7,7 @@ import {  useMatch } from "react-router-dom";
 import { compose } from "redux";
 import { ProfileType } from "../../types/types";
 import { StateType } from "../../redux/store";
+import { withAuthRedirect } from "../hoc/withAuthRedirect";
 
 
 type mapStatepropsType = {
@@ -19,13 +20,16 @@ type mapStatepropsType = {
 type mapDispatchpropsType = {
     getUserProfile: (userId: number) => void
     getUserStatus: (userId: number) => void
-    updateUserStatus: (status: string) => void
+    updateUserStatus: () => void
     savePhoto: (file: File)=> void
-    saveProfile: (profile: ProfileType)=> void
+    saveProfile: (profile: ProfileType)=> Promise<any>
+}
+
+type PathParamsType = {
     match: any
 }
 
-type PropsType = mapStatepropsType & mapDispatchpropsType
+type PropsType = mapStatepropsType & mapDispatchpropsType & PathParamsType
 
 class ProfileContainer extends React.Component<PropsType> {
     refreshProfile() {
@@ -38,7 +42,7 @@ class ProfileContainer extends React.Component<PropsType> {
         this.refreshProfile();
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps: PropsType) {
         if (this.props.match != prevProps.match) {
             this.refreshProfile(); 
         }
@@ -54,7 +58,7 @@ class ProfileContainer extends React.Component<PropsType> {
     }
 }
 
-const ProfileMatch = (props) => {
+const ProfileMatch = (props: any) => {
 	let match = useMatch("/profile/:userId/");
 	return (
 		<ProfileContainer {...props} match={match} />
@@ -62,15 +66,15 @@ const ProfileMatch = (props) => {
 }
 
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state: StateType) => ({
 profile: state.profilePage.profile,
 status: state.profilePage.status,
 authorizedUserId: state.auth.id,
-isAuth: state.isAuth
+isAuth: state.auth
 })
 
 
-export default compose(
+export default compose<React.ComponentType>(
     connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, savePhoto, saveProfile}),
-    WithAuthRedirect
+    withAuthRedirect
 )(ProfileMatch)
