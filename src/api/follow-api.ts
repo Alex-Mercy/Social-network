@@ -1,14 +1,14 @@
-import { instance, ResponseType } from "./api";
+import { ApiResponseType, instance} from "./api";
 
 export const followAPI = {
     unfollowUsers(id: number) {
-        return instance.delete<ResponseType>(`follow/${id}`, {
+        return instance.delete<ApiResponseType>(`follow/${id}`, {
         })
             .then(response => response.data);
     },
 
     followUsers(id: number) {
-        return instance.post<ResponseType>(`follow/${id}`, {
+        return instance.post<ApiResponseType>(`follow/${id}`, {
         })
             .then(response => response.data);
     }
